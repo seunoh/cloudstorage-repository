@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: glusterfs-chef
+# Cookbook Name:: glusterfs
 # Recipe:: default
 #
-# Copyright 2012, YOUR_COMPANY_NAME
+# Copyright 2012, sw maestro
 #
 # All rights reserved - Do Not Redistribute
 #
