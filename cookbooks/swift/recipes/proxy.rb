@@ -96,7 +96,7 @@ end
     cwd "/etc/swift"
     user node[:storage][:user]
     group node[:storage][:group]
-    not_if { File.exists? ("/etc/swift/#{content}.ring.gz") }
+    not_if { File.exists?("/etc/swift/#{content}.ring.gz") }
   end 
 end
 
