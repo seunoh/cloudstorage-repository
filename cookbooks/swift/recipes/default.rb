@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{swift python-software-properties openssh-server}.each do |pkg|
+%w{swift openssh-server}.each do |pkg|
   package pkg
 end
 
