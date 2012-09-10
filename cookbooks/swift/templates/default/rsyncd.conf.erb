@@ -1,0 +1,11 @@
+uid = <%= node[:storage][:user] %>
+gid = <%= node[:storage][:group] %>
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+address = <%= node["ipaddress"] %>
+
+[<%= @content_name %>]
+max connections = 2
+path = /srv/node/
+read only = false
+lock file = /var/lock/<%= @content_name %>.lock
