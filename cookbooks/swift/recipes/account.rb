@@ -8,11 +8,12 @@
 #
 
 include_recipe "swift::default"
+include_recipe "swift::xfs"
 
 App="account"
 
-%w{swift-account xfsprogs}.each do |pkg|
-  package pkg
+package "swift-#{App}" do
+  action :install
 end
 
 template "/etc/rsyncd.conf" do
@@ -36,7 +37,7 @@ template "/etc/swift/#{App}-server.conf" do
   source "#{App}-server.conf.erb"
   owner node[:storage][:user]
   group node[:storage][:group]
-  mode "0755"
+  mode "0644"
 end
 
 passwd = "#{node[:storage][:proxy][:passwd]}"

@@ -4,7 +4,7 @@ default[:storage][:homedir] = "/root"
 default[:storage][:mount_path] = "/srv/noda"
 default[:storage][:mounted_drives] = "7"
 
-
+default[:storage][:content] = "account"
 
 default[:storage][:proxy][:user] = "root"
 default[:storage][:proxy][:passwd] = "0"

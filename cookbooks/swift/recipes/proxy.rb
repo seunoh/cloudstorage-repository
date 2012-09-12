@@ -25,13 +25,11 @@ execute "create auth cert" do
 end
 
 
-execute "modify memcached" do
-  user node[:storage][:user]
+template "/etc/memcached.conf" do
+  source "memcached.conf.erb"
+  owner node[:storage][:user]
   group node[:storage][:group]
-  command <<-EOH
-  perl -pi -e "s/-l 127.0.0.1/-l #{node[:storage][:proxy][:ip]}/" /etc/memcached.conf
-  EOH
-  not_if { File.exists?("/etc/memcached.conf") }
+  mode "0644"
 end
 
 

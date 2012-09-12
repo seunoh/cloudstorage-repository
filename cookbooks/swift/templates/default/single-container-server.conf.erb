@@ -3,7 +3,7 @@ devices = /srv/<%= @server_num %>/node
 mount_check = false
 disable_fallocate = true
 bind_port = 60<%= @server_num %>1
-user = <%= node[:cloudfiles][:user] %>
+user = <%= node[:storage][:user] %>
 log_facility = LOG_LOCAL<%= @server_num %>
 recon_cache_path = /var/cache/swift<%= @server_num %>
 

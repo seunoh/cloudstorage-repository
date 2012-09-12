@@ -7,7 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{python-software-properties swift openssh-server}.each do |pkg|
+#execute "sudo apt-get update" do
+#end
+
+%w{swift openssh-server sshpass}.each do |pkg|
   package pkg
 end
 

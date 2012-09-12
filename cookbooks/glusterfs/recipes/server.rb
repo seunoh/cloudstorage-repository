@@ -13,10 +13,10 @@ end
 
 
 directory node[:glusterfs][:server][:export_directory] do
+  mode "0644"
   recursive true
 end
-
-
+d
 service "glusterd" do
   action :start
 end
@@ -60,4 +60,8 @@ peers = `gluster peer status | grep ^Hostname | awk '{print $2}'`.split.map{|x| 
   execute "gluster volume start #{volume}" do
     not_if "gluster volume info #{volume} | grep 'Status: Started'"
   end
+end
+
+service "glusterd" do
+  action :start
 end

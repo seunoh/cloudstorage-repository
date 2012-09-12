@@ -174,7 +174,7 @@ template "/etc/swift/proxy-server.conf" do
 end
 
 template "/etc/swift/swift.conf" do
-  source "single-swift.conf.erb"
+  source "swift.conf.erb"
   mode "0644"
   owner node[:storage][:user]
   group node[:storage][:group]
@@ -182,9 +182,9 @@ end
 
 %w{1 2 3 4}.each do |server_num|
   %w{account container object}.each do |server_type|
-    template "/etc/swift/single-#{server_type}-server/#{server_num}.conf" do
+    template "/etc/swift/#{server_type}-server/#{server_num}.conf" do
       variables({ :server_num => server_num })
-      source "#{server_type}-server-conf.erb"
+      source "single-#{server_type}-server.conf.erb"
       mode "0644"
       owner node[:storage][:user]
       group node[:storage][:group]

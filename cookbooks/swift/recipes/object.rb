@@ -8,11 +8,12 @@
 #
 
 include_recipe "swift::default"
+include_recipe "swift::xfs"
 
 App="object"
 
-%w{swift-account xfsprogs}.each do |pkg|
-  package pkg
+package "swift-#{App}" do
+  action :install
 end
 
 template "/etc/rsyncd.conf" do
@@ -44,7 +45,7 @@ user = "#{node[:storage][:proxy][:user]}"
 ip = "#{node[:storage][:proxy][:ip]}"
 
 execute "ring copy" do
-  command "sshpass -p #{passwd} scp -oStrictHostKeyChecking=no #{user}@#{ip}:/etc/swift/*.ring.gz /etc/swift"
+  command "sshpass -p #{passwd} scp -oStrictHostKeyChecking=no #{user}@#{ip}:/etc/swift/#{App}.ring.gz /etc/swift"
   cwd "/etc/swift"
 end
 

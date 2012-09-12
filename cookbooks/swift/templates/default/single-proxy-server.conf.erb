@@ -1,6 +1,6 @@
 [DEFAULT]
 bind_port = 8080
-user = <%= node[:cloudfiles][:user]%>
+user = <%= node[:storage][:user]%>
 log_facility = LOG_LOCAL0
 
 [pipeline:main]

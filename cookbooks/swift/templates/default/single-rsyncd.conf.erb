@@ -1,5 +1,5 @@
-uid = <%= node[:cloudfiles][:user] %>
-gid = <%= node[:cloudfiles][:group] %>
+uid = <%= node[:storage][:user] %>
+gid = <%= node[:storage][:group] %>
 log file = /var/log/rsyncd.log
 pid file = /var/run/rsyncd.pid
 

@@ -7,13 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-
 include_recipe "swift::default"
+include_recipe "swift::xfs"
 
 App="container"
 
-%w{swift-account xfsprogs}.each do |pkg|
-  package pkg
+package "swift-#{App}" do
+  action :install
 end
 
 template "/etc/rsyncd.conf" do
